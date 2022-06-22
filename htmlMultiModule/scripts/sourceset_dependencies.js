@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":wrapper:minecraft:dokkaHtmlPartial/main":[],":core:dokkaHtmlPartial/main":[],":wrapper:qsl:dokkaHtmlPartial/main":[]}'
