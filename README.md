@@ -2,12 +2,10 @@
 
 ## [Multi Module](https://qkl.docs.concern.i.ng/htmlMultiModule/)
 
-- Each module is separated in the folder structure.
-- Modules link together in the navigation bar.
-- Harder to find a particular file.
+## Javadocs for individual modules
+No "multi module" mode is supported by Dokka at this time, so every module has javadoc
+browsed separately.
 
-## [Collector](https://qkl.docs.concern.i.ng/htmlCollector/)
-
-- All modules are collected into one tree.
-- Easier to find a particular file.
-- Harder to identify a particular file's module.
+- [Core](https://qkl.docs.concern.i.ng/javadocs/core/)
+- [Wrapper - Minecraft](https://qkl.docs.concern.i.ng/javadocs/wrapper/minecraft/)
+- [Wrapper - QSL](https://qkl.docs.concern.i.ng/javadocs/wrapper/qsl/)

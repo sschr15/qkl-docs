@@ -1,0 +1,13 @@
+$dokka.format:javadoc-v1
+$dokka.linkExtension:html
+$dokka.location:org.quiltmc.qkl.wrapper.minecraft.brigadier/CommandArgument.Optional///PointingToDeclaration/org/quiltmc/qkl/wrapper/minecraft/brigadier/CommandArgument.Optional.html
+$dokka.location:org.quiltmc.qkl.wrapper.minecraft.brigadier/CommandArgument.Required///PointingToDeclaration/org/quiltmc/qkl/wrapper/minecraft/brigadier/CommandArgument.Required.html
+$dokka.location:org.quiltmc.qkl.wrapper.minecraft.brigadier/CommandResult.Companion///PointingToDeclaration/org/quiltmc/qkl/wrapper/minecraft/brigadier/CommandResult.Companion.html
+$dokka.location:org.quiltmc.qkl.wrapper.minecraft.brigadier/CommandResult.Failure///PointingToDeclaration/org/quiltmc/qkl/wrapper/minecraft/brigadier/CommandResult.Failure.html
+$dokka.location:org.quiltmc.qkl.wrapper.minecraft.brigadier/CommandResult.Success///PointingToDeclaration/org/quiltmc/qkl/wrapper/minecraft/brigadier/CommandResult.Success.html
+org.quiltmc.qkl.wrapper.minecraft.brigadier
+org.quiltmc.qkl.wrapper.minecraft.brigadier.argument
+org.quiltmc.qkl.wrapper.minecraft.brigadier.util
+org.quiltmc.qkl.wrapper.minecraft.math
+org.quiltmc.qkl.wrapper.minecraft.registry
+

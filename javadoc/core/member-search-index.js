@@ -1,0 +1,1 @@
+var memberSearchIndex = [{"p":"org.quiltmc.qkl.core.adapter","c":"KotlinAdapter","l":"KotlinAdapter()","url":"org/quiltmc/qkl/core/adapter/KotlinAdapter.html#KotlinAdapter()"}, {"p":"org.quiltmc.qkl.core.adapter","c":"KotlinAdapter","l":"create(ModContainer, String, Class<T>)","url":"org/quiltmc/qkl/core/adapter/KotlinAdapter.html#create(ModContainer,String,Class)"}]
