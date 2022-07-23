@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-dark">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>register</title>
+    <link href="../../images/qkl-icon.png" rel="icon" type="image/png">
+    <meta property="og:title" content="register"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="quilt-kotlin-libraries"/>
+    <script>var pathToRoot = "../../";</script>
+<script src="https://unpkg.com/kotlin-playground@1"></script><script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/prism.js" async="async"></script>
+<link href="../../images/qkl-icon.png">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/style.css" rel="Stylesheet">
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../index.html">
+                    <span>quilt-kotlin-libraries</span>
+            </a>
+    </div>
+    <div>
+    </div>
+    <div class="pull-right d-flex">
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageIds="quilt-kotlin-libraries::org.quiltmc.qkl.wrapper.minecraft.brigadier//register/com.mojang.brigadier.CommandDispatcher[TypeParam(bounds=[kotlin.Any?])]#kotlin.String#kotlin.Function1[com.mojang.brigadier.builder.LiteralArgumentBuilder[TypeParam(bounds=[kotlin.Any?])],kotlin.Unit]/PointingToDeclaration//-1844271176">
+  <div class="breadcrumbs"><a href="../../index.html">quilt-kotlin-libraries</a><span class="delimiter">/</span><a href="index.html">org.quiltmc.qkl.wrapper.minecraft.brigadier</a><span class="delimiter">/</span><a href="register.html">register</a></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>register</span></span></h1>
+  </div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":wrapper:qsl:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="register.html">S</a><span class="token operator">&gt; </span><span data-unresolved-link="com.mojang.brigadier/CommandDispatcher///PointingToDeclaration/">CommandDispatcher</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="register.html">S</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="register.html"><span class="token function">register</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">action<span class="token operator">: </span><span class="token keyword"></span><span data-unresolved-link="com.mojang.brigadier.builder/LiteralArgumentBuilder///PointingToDeclaration/">LiteralArgumentBuilder</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="register.html">S</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Registers a command under <a href="register.html">command</a> as the name.</p><h4 class="">Author</h4><p class="paragraph">Oliver-makes-code (Emma)</p><h2 class="">Samples</h2><div class="sample-container"><pre><code class="runnablesample monospace block lang-kotlin" theme="idea">import com.mojang.brigadier.CommandDispatcher
+import net.minecraft.command.argument.PosArgument
+import net.minecraft.command.argument.Vec3ArgumentType
+import net.minecraft.network.MessageType
+import net.minecraft.server.command.ServerCommandSource
+import net.minecraft.text.Text
+import net.minecraft.util.math.Vec3d
+import org.quiltmc.qkl.wrapper.minecraft.brigadier.*
+import org.quiltmc.qkl.wrapper.minecraft.brigadier.argument.*
+import org.quiltmc.qkl.wrapper.minecraft.brigadier.util.entity
+import org.quiltmc.qkl.wrapper.minecraft.brigadier.util.required
+import org.quiltmc.qkl.wrapper.minecraft.brigadier.util.sendFeedback
+import org.quiltmc.qkl.wrapper.minecraft.brigadier.util.server
+import kotlin.random.Random
+fun main() { 
+   //sampleStart 
+   val dispatcher: CommandDispatcher&lt;ServerCommandSource&gt; = stub()
+
+dispatcher.register(&quot;echo&quot;) {
+    //register arguments with extension methods
+    required(string(&quot;message&quot;)) { message -&gt; // treat the argument as a key
+        required(boolean(&quot;toCaps&quot;)) { getToCaps -&gt; // or as an accessor
+            //standard builder methods can be called as normal
+            requires {
+                it.player.experienceLevel &gt; Random.nextInt()
+            }
+
+            //execute the command with an extension method
+            execute {
+                val response = if (getToCaps().value()) {
+                    this[message].value().uppercase()
+                } else {
+                    this[message].value()
+                }
+
+                //use utility extensions for common actions
+                sendFeedback(Text.literal(response))
+            }
+        }
+    }
+} 
+   //sampleEnd
+}</code></pre></div></div></div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 QuiltMC</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

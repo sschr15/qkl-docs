@@ -4,6 +4,10 @@ $dokka.linkExtension:html
 module:core
 org.quiltmc.qkl.core.adapter
 module:minecraft
+org.quiltmc.qkl.wrapper.minecraft.brigadier
+org.quiltmc.qkl.wrapper.minecraft.brigadier.argument
+org.quiltmc.qkl.wrapper.minecraft.brigadier.util
+org.quiltmc.qkl.wrapper.minecraft.math
 org.quiltmc.qkl.wrapper.minecraft.registry
 module:qsl
 org.quiltmc.qkl.wrapper.qsl
