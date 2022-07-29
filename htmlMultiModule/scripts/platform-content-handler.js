@@ -8,9 +8,6 @@ let topNavbarOffset;
 let instances = [];
 let sourcesetNotification;
 
-const samplesDarkThemeName = 'darcula'
-const samplesLightThemeName = 'idea'
-
 window.addEventListener('load', () => {
     document.querySelectorAll("div[data-platform-hinted]")
         .forEach(elem => elem.addEventListener('click', (event) => togglePlatformDependent(event, elem)))
@@ -25,60 +22,7 @@ window.addEventListener('load', () => {
     handleAnchor()
     initHidingLeftNavigation()
     topNavbarOffset = document.getElementById('navigation-wrapper')
-    darkModeSwitch()
 })
-
-const darkModeSwitch = () => {
-    const localStorageKey = "dokka-dark-mode"
-    const storage = localStorage.getItem(localStorageKey)
-    const savedDarkMode = storage ? JSON.parse(storage) : false
-    const element = document.getElementById("theme-toggle-button")
-    initPlayground(savedDarkMode ? samplesDarkThemeName : samplesLightThemeName)
-
-    element.addEventListener('click', () => {
-        const enabledClasses = document.getElementsByTagName("html")[0].classList
-        enabledClasses.toggle("theme-dark")
-
-        //if previously we had saved dark theme then we set it to light as this is what we save in local storage
-        const darkModeEnabled = enabledClasses.contains("theme-dark")
-        if (darkModeEnabled) {
-            initPlayground(samplesDarkThemeName)
-        } else {
-            initPlayground(samplesLightThemeName)
-        }
-        localStorage.setItem(localStorageKey, JSON.stringify(darkModeEnabled))
-    })
-}
-
-const initPlayground = (theme) => {
-    if (!samplesAreEnabled()) return
-    instances.forEach(instance => instance.destroy())
-    instances = []
-
-    // Manually tag code fragments as not processed by playground since we also manually destroy all of its instances
-    document.querySelectorAll('code.runnablesample').forEach(node => {
-        node.removeAttribute("data-kotlin-playground-initialized");
-    })
-
-    KotlinPlayground('code.runnablesample', {
-        getInstance: playgroundInstance => {
-            instances.push(playgroundInstance)
-        },
-        theme: theme
-    });
-}
-
-// We check if type is accessible from the current scope to determine if samples script is present
-// As an alternative we could extract this samples-specific script to new js file but then we would handle dark mode in 2 separate files which is not ideal
-const samplesAreEnabled = () => {
-    try {
-        KotlinPlayground
-        return true
-    } catch (e) {
-        return false
-    }
-}
-
 
 const initHidingLeftNavigation = () => {
     document.getElementById("leftToggler").onclick = function (event) {
